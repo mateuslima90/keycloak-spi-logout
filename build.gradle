@@ -1,0 +1,32 @@
+plugins {
+	id 'java'
+}
+
+group = 'com.mkth.keycloak'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	keycloakSpi_version = '10.0.1'
+	jaxrsApi_version = '1.0.0.Final'
+}
+
+dependencies {
+
+	compileOnly group: 'org.keycloak', name: 'keycloak-server-spi', version: keycloakSpi_version
+	compileOnly group: 'org.keycloak', name: 'keycloak-server-spi-private', version: keycloakSpi_version
+	compileOnly group: 'org.keycloak', name: 'keycloak-core', version: keycloakSpi_version
+	compileOnly group: 'org.keycloak', name: 'keycloak-services', version: keycloakSpi_version
+	compileOnly group: 'org.keycloak', name: 'keycloak-model-jpa', version: keycloakSpi_version
+	compileOnly group: 'org.jboss.spec.javax.ws.rs', name: 'jboss-jaxrs-api_2.1_spec', version: jaxrsApi_version
+
+}
+
+test {
+	useJUnitPlatform()
+}
